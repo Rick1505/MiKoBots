@@ -63,34 +63,35 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <h3 class="mb-4">Need a functional contact form?</h3>
                     <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                    <form>
+                    <form method="POST", action="{{ url_for('contact') }}" novalidate>
+                        {{ form.csrf_token }}
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                    <label for="name">Your Name</label>
+                                    {{form.name(class_ = "form-control")}}
+                                    <label for="name"> {{form.name.render_kw.placeholder}}</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                    <label for="email">Your Email</label>
+                                    {{form.email(class_ = "form-control")}}
+                                    <label for="email"> {{form.email.render_kw.placeholder}}</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                    <label for="subject">Subject</label>
+                                    {{form.subject(class_ = "form-control")}}
+                                    <label for="subject"> {{form.subject.render_kw.placeholder}}</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 120px"></textarea>
-                                    <label for="message">Message</label>
+                                    {{form.message(class_ = "form-control", size=40)}}
+                                    <label for="message"> {{form.message.render_kw.placeholder}}</label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Send Message</button>
+                                {{form.submit(class_ = "btn btn-primary rounded-pill py-3 px-5")}}
                             </div>
                         </div>
                     </form>
