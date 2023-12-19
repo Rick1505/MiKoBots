@@ -51,7 +51,7 @@ def contact():
                 to_addrs=my_email,
                 msg=f"Subject:{form.subject.data} \n\n{msg}"
             )
-        redirect(url_for("home"))
+            redirect(url_for("home"))
     
     return render_template("contact.html", form=form)
 
