@@ -39,7 +39,7 @@ def blog():
 @app.route("/contact", methods=["POST", "GET"])
 def contact():
     form = ContactForm()
-    
+    msg2 = "TEST123"
     msg = f"Hello,\nThis mail is from {form.name.data} with the mailadress: {form.email.data}\n\n{form.message.data}"
     
     if form.validate_on_submit():
